@@ -1,5 +1,6 @@
 package ar.edu.unlu.poo.tp1.ej5;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 enum Prioridad {
     ALTA, MEDIA, BAJA;
@@ -44,6 +45,23 @@ public class Tarea {
     }
     public LocalDate getFechaLimite() {
         return fechaLimite;
+    }
+    public void mostrarTarea() {
+        if (estaVencida()) {
+            System.out.println("(Vencida) " + Arrays.toString(getDescripcion()));
+        } else {
+            System.out.println(Arrays.toString(getDescripcion()));
+        }
+    }
+    public boolean estaVencida() {
+        if(estado.equals(Estado.COMPLETA)) {
+            return false;
+        }
+        LocalDate hoy = LocalDate.now();
+        return (hoy.isAfter(fechaLimite));
+    }
+    public boolean estaCompleta() {
+        return estado.equals(Estado.COMPLETA);
     }
 
 }
