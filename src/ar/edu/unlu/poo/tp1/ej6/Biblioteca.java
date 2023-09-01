@@ -10,10 +10,7 @@ public class Biblioteca {
     }
     public boolean prestarLibro(String titulo) {
         Libro libroBuscado = buscar(titulo);
-        if (libroBuscado.prestar()) {
-            return true;
-        }
-        return false;
+        return libroBuscado.prestar();
     }
 
     public Libro buscar(String titulo) { // sobrecargar para buscar por titulo, autor
