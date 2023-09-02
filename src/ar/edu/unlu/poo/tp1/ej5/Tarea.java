@@ -10,22 +10,22 @@ enum Estado {
 }
 
 public class Tarea {
-    private String[] descripcion;
+    private String descripcion;
     private Prioridad prioridad;
     private Estado estado;
     private LocalDate fechaLimite;
 
-    public Tarea(String[] descripcion, Prioridad prioridad, Estado estado, LocalDate fechaLimite) {
+    public Tarea(String descripcion, Prioridad prioridad, Estado estado, LocalDate fechaLimite) {
         setDescripcion(descripcion);
         setPrioridad(prioridad);
         setEstado(estado);
         setFechaLimite(fechaLimite);
     }
 
-    public void setDescripcion(String[] descripcion) {
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public String[] getDescripcion() {
+    public String getDescripcion() {
         return descripcion;
     }
     public void setPrioridad(Prioridad prioridad) {
@@ -48,9 +48,9 @@ public class Tarea {
     }
     public void mostrarTarea() {
         if (estaVencida()) {
-            System.out.println("(Vencida) " + Arrays.toString(getDescripcion()));
+            System.out.println("(Vencida) " + getDescripcion());
         } else {
-            System.out.println(Arrays.toString(getDescripcion()));
+            System.out.println(getDescripcion());
         }
     }
     public boolean estaVencida() {
@@ -62,6 +62,11 @@ public class Tarea {
     }
     public boolean estaCompleta() {
         return estado.equals(Estado.COMPLETA);
+    }
+    public boolean buscar(String dato) {
+        String tituloBuscado = dato.toLowerCase();
+        String titulo = getDescripcion().toLowerCase();
+        return tituloBuscado.contains(titulo);
     }
 
 }

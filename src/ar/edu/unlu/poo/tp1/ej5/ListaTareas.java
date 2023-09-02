@@ -9,7 +9,7 @@ public class ListaTareas {
     public void crearListaTareas() {
         ListaTareas listaTareas = new ListaTareas();
     }
-    public void crearTarea(String[] descripcion, Prioridad prioridad, Estado estado, LocalDate fechaLimite) {
+    public void crearTarea(String descripcion, Prioridad prioridad, Estado estado, LocalDate fechaLimite) {
         Tarea task = new Tarea(descripcion, prioridad, estado, fechaLimite);
         listaTareas.add(task);
     }
@@ -21,10 +21,11 @@ public class ListaTareas {
     }
     public Tarea buscarTarea(String titulo) {
         for (Tarea tarea : listaTareas) {
-            String[] tituloTarea = tarea.getDescripcion();
-            String tituloBuscado = titulo.toLowerCase();
-            // comparar si cadena 2 contiene cadena 1
+            if (tarea.buscar(titulo)) {
+                return tarea;
+            }
         }
+        return null;
     }
     public void tareasOrdenadas() {
 
