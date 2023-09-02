@@ -9,7 +9,7 @@ public class ListaTareas {
     public void crearListaTareas() {
         ListaTareas listaTareas = new ListaTareas();
     }
-    public void crearTarea(String descripcion, Prioridad prioridad, Estado estado, LocalDate fechaLimite) {
+    public void crearTarea(String descripcion, Tarea.Prioridad prioridad, Tarea.Estado estado, LocalDate fechaLimite) {
         Tarea task = new Tarea(descripcion, prioridad, estado, fechaLimite);
         listaTareas.add(task);
     }

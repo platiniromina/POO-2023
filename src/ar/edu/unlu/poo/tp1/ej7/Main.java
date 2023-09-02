@@ -1,4 +1,4 @@
-package ar.edu.unlu.poo.tp1.ej8;
+package ar.edu.unlu.poo.tp1.ej7;
 
 import java.util.ArrayList;
 

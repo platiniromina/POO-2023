@@ -1,15 +1,14 @@
 package ar.edu.unlu.poo.tp1.ej5;
-import java.time.LocalDate;
-import java.util.Arrays;
 
-enum Prioridad {
-    ALTA, MEDIA, BAJA;
-}
-enum Estado {
-    INCOMPLETA, COMPLETA;
-}
+import java.time.LocalDate;
 
 public class Tarea {
+    public enum Prioridad {
+        ALTA, MEDIA, BAJA;
+    }
+    public enum Estado {
+        INCOMPLETA, COMPLETA;
+    }
     private String descripcion;
     private Prioridad prioridad;
     private Estado estado;

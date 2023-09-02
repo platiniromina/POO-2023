@@ -1,17 +1,17 @@
-package ar.edu.unlu.poo.tp1.ej8;
+package ar.edu.unlu.poo.tp1.ej7;
 
 import java.util.ArrayList;
 
 public class Cuadratica {
     private float coeficienteA;
     private float coeficienteB;
-    private float terminoInd;
+    private float coeficienteC;
     private float valorX;
 
     public Cuadratica(float a, float b, float c) {
         setCoeficienteA(a);
         setCoeficienteB(b);
-        setTerminoInd(c);
+        setCoeficienteC(c);
     }
     public void setCoeficienteA(float coeficienteA) {
         this.coeficienteA = coeficienteA;
@@ -19,8 +19,8 @@ public class Cuadratica {
     public void setCoeficienteB(float coeficienteB) {
         this.coeficienteB = coeficienteB;
     }
-    public void setTerminoInd(float terminoInd) {
-        this.terminoInd = terminoInd;
+    public void setCoeficienteC(float coeficienteC) {
+        this.coeficienteC = coeficienteC;
     }
     public void setValorX(float valorX) {
         this.valorX = valorX;
@@ -30,7 +30,7 @@ public class Cuadratica {
     }
 
     public ArrayList<Float> calcularRaices() {
-        float discriminante = (float) ((Math.pow(coeficienteB, 2)) - 4 * coeficienteA * terminoInd);
+        float discriminante = (float) ((Math.pow(coeficienteB, 2)) - 4 * coeficienteA * coeficienteC);
         ArrayList<Float> raices = new ArrayList<>();
         if (discriminante < 0) {
             return null;
@@ -49,7 +49,7 @@ public class Cuadratica {
     }
     public float calcularY(float x) {
         setValorX(x);
-        return (float) (coeficienteA * Math.pow(valorX, 2) + coeficienteB * x + terminoInd);
+        return (float) (coeficienteA * Math.pow(valorX, 2) + coeficienteB * x + coeficienteC);
     }
 
     public void mostrarCuadratica() {
@@ -60,8 +60,8 @@ public class Cuadratica {
         if (coeficienteB != 0) {
             ecuacion += coeficienteB + "x ";
         }
-        if (terminoInd != 0) {
-            ecuacion += terminoInd;
+        if (coeficienteC != 0) {
+            ecuacion += coeficienteC;
         }
         System.out.println(ecuacion);
     }
