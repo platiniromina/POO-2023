@@ -4,7 +4,7 @@ public class Libro {
     private String isbn;
     private String titulo;
     private String autor;
-    private String año;
+    private String anio;
     private Integer nroPaginas;
     private Integer ejemplares;
     private Integer ejemplaresPrestados = 0;
@@ -38,11 +38,11 @@ public class Libro {
         return autor;
     }
 
-    public void setAño(String año) {
-        this.año = año;
+    public void setAnio(String anio) {
+        this.anio = anio;
     }
-    public String getAño() {
-        return año;
+    public String getAnio() {
+        return anio;
     }
 
     public void setNroPaginas(int nroPaginas) {
@@ -67,7 +67,7 @@ public class Libro {
         String descripcion = String.format("Libro: %s / Autor: %s / ISBN: %s " +
                         "/ Año: %s / Páginas: %i \n" +
                         "Ejemplares disponibles: %i / Ejemplares prestados: %i",
-                titulo, autor, isbn, año, nroPaginas, ejemplares, ejemplaresPrestados);
+                titulo, autor, isbn, anio, nroPaginas, ejemplares, ejemplaresPrestados);
         return descripcion;
     }
 
