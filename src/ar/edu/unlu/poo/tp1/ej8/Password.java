@@ -68,10 +68,18 @@ public class Password {
         } else
             return "<" + password + "> - Débil";
     }
+    public boolean debeRegenerar() {
+        if (fuerte) {
+            return false;
+        }
+        regenerarPassword();
+        return true;
+    }
     public void regenerarPassword() {
         while (!fuerte) {
             password = new StringBuilder();
             generarPassword();
+            fuerte = passwordFuerte();
         }
     }
 }

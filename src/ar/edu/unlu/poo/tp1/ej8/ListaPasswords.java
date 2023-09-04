@@ -26,7 +26,9 @@ public class ListaPasswords {
     }
     public void regenerarDebiles() {
         for (Password password : passwords) {
-            password.regenerarPassword();
+            if (password.debeRegenerar()) {
+                System.out.println("Contraseña regenerada: " + password.verPassword());
+            }
         }
     }
 }
