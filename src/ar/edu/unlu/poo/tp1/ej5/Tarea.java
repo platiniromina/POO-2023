@@ -13,6 +13,8 @@ public class Tarea {
     private Prioridad prioridad;
     private Estado estado;
     private LocalDate fechaLimite;
+    private LocalDate fechaRecordatorio;
+    private LocalDate fechaCompletada;
 
     public Tarea(String descripcion, Prioridad prioridad, Estado estado, LocalDate fechaLimite) {
         setDescripcion(descripcion);
@@ -45,9 +47,30 @@ public class Tarea {
     public LocalDate getFechaLimite() {
         return fechaLimite;
     }
+    public void setFechaRecordatorio(LocalDate fechaRecordatorio) {
+        this.fechaRecordatorio = fechaRecordatorio;
+    }
+
+    public LocalDate getFechaRecordatorio() {
+        return fechaRecordatorio;
+    }
+    public void setFechaCompletada(LocalDate dia) {
+        fechaCompletada = dia;
+    }
+
+    public LocalDate getFechaCompletada() {
+        return fechaCompletada;
+    }
+
     public void mostrarTarea() {
+        LocalDate hoy = LocalDate.now();
         if (estaVencida()) {
             System.out.println("(Vencida) " + getDescripcion());
+        } else if (estaPorVencer()) {
+            System.out.println("(Por vencer) " + getDescripcion());
+        }
+        else if (estaCompleta()) {
+            System.out.println("(Terminada) " + getDescripcion());
         } else {
             System.out.println(getDescripcion());
         }
@@ -61,6 +84,10 @@ public class Tarea {
     }
     public boolean estaCompleta() {
         return estado.equals(Estado.COMPLETA);
+    }
+    public boolean estaPorVencer() {
+        LocalDate hoy = LocalDate.now();
+        return fechaRecordatorio.isEqual(hoy) || fechaRecordatorio.isBefore(hoy);
     }
     public boolean buscar(String dato) {
         String tituloBuscado = dato.toLowerCase();
