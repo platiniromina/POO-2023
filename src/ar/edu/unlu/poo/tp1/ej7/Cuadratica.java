@@ -52,17 +52,43 @@ public class Cuadratica {
         return (float) (coeficienteA * Math.pow(valorX, 2) + coeficienteB * x + coeficienteC);
     }
 
-    public void mostrarCuadratica() {
+    public String mostrarCuadratica() {
         String ecuacion = "";
+
+        // Coeficiente 'a'
         if (coeficienteA != 0) {
-            ecuacion += coeficienteA + "x^2 ";
+            if (coeficienteA != 1 && coeficienteA != -1) {
+                ecuacion += coeficienteA;
+            }
+            ecuacion += "x^2";
         }
+
+        // Coeficiente 'b'
         if (coeficienteB != 0) {
-            ecuacion += coeficienteB + "x ";
+            if (coeficienteB > 0) {
+                ecuacion += " + ";
+                if (coeficienteB != 1) {
+                    ecuacion += coeficienteB;
+                }
+            } else {
+                ecuacion += " - ";
+                if (coeficienteB != -1) {
+                    ecuacion += -coeficienteB;
+                }
+            }
+            ecuacion += "x";
         }
+
+        // Término independiente 'c'
         if (coeficienteC != 0) {
-            ecuacion += coeficienteC;
+            if (coeficienteC > 0) {
+                ecuacion += " + ";
+                ecuacion += coeficienteC;
+            } else {
+                ecuacion += " - ";
+                ecuacion += -coeficienteC;
+            }
         }
-        System.out.println(ecuacion);
+        return ecuacion;
     }
 }
