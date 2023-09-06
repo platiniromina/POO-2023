@@ -6,6 +6,9 @@ public class Colaborador {
     private String nombre;
     private ArrayList<Tarea> tareasColaborador = new ArrayList<>();
 
+    public Colaborador(String nombre) {
+        setNombre(nombre);
+    }
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

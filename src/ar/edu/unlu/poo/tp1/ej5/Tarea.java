@@ -1,13 +1,14 @@
 package ar.edu.unlu.poo.tp1.ej5;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Tarea {
     public enum Prioridad {
-        ALTA, MEDIA, BAJA;
+        BAJA, MEDIA, ALTA;
     }
     public enum Estado {
-        INCOMPLETA, COMPLETA;
+        COMPLETA, INCOMPLETA;
     }
     private String descripcion;
     private Prioridad prioridad;
@@ -15,12 +16,15 @@ public class Tarea {
     private LocalDate fechaLimite;
     private LocalDate fechaRecordatorio;
     private LocalDate fechaCompletada;
+    private Colaborador user;
 
-    public Tarea(String descripcion, Prioridad prioridad, Estado estado, LocalDate fechaLimite) {
+    public Tarea(String descripcion, Prioridad prioridad, Estado estado, String fechaLimite, String fechaRecordatorio) {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yy");
         setDescripcion(descripcion);
         setPrioridad(prioridad);
         setEstado(estado);
-        setFechaLimite(fechaLimite);
+        setFechaLimite(LocalDate.parse(fechaLimite, formato));
+        setFechaRecordatorio(LocalDate.parse(fechaRecordatorio, formato));
     }
 
     public void setDescripcion(String descripcion) {
@@ -50,7 +54,6 @@ public class Tarea {
     public void setFechaRecordatorio(LocalDate fechaRecordatorio) {
         this.fechaRecordatorio = fechaRecordatorio;
     }
-
     public LocalDate getFechaRecordatorio() {
         return fechaRecordatorio;
     }
@@ -62,17 +65,24 @@ public class Tarea {
         return fechaCompletada;
     }
 
-    public void mostrarTarea() {
+    public void setUser(Colaborador user) {
+        this.user = user;
+    }
+    public Colaborador getUser() {
+        return user;
+    }
+
+    public String mostrarTarea() {
         LocalDate hoy = LocalDate.now();
         if (estaVencida()) {
-            System.out.println("(Vencida) " + getDescripcion());
+            return "(Vencida) " + getDescripcion();
         } else if (estaPorVencer()) {
-            System.out.println("(Por vencer) " + getDescripcion());
+            return "(Por vencer) " + getDescripcion();
         }
         else if (estaCompleta()) {
-            System.out.println("(Terminada) " + getDescripcion());
+            return "(Terminada) " + getDescripcion();
         } else {
-            System.out.println(getDescripcion());
+            return getDescripcion();
         }
     }
     public boolean estaVencida() {
