@@ -8,14 +8,18 @@ public class Biblioteca {
         Libro newLibro = new Libro(newIsbn, newTitulo, newAutor, newPags, cantEjemplares);
         libros.add(newLibro);
     }
-    public boolean prestarLibro(String titulo) {
+    public String prestarLibro(String titulo) {
         Libro libroBuscado = buscar(titulo);
-        return libroBuscado.prestar();
+        if (libroBuscado.prestar()) {
+            return "Se prestó el libro <" + libroBuscado.getTitulo() + "> " +
+                    "y quedan " + libroBuscado.getEjemplaresDisponibles() + " ejemplares disponbles";
+        }
+        return "No se pudo prestar <" + libroBuscado.getTitulo() + "> porque quedaba un sólo ejemplar disponible";
     }
 
     public Libro buscar(String titulo) { // sobrecargar para buscar por titulo, autor
         for(Libro l: libros) {
-            if (l.getTitulo().equals(titulo)) {
+            if (l.getTitulo().equalsIgnoreCase(titulo)) {
                 return l;
             }
         }
@@ -30,8 +34,20 @@ public class Biblioteca {
         return prestados;
     }
 
-    public void mostrarLibro(Libro l) {
-        System.out.println(l.verDescripcion());
+    public String mostrarLibro(String libro) {
+        Libro l = buscar(libro);
+        if (l != null) {
+            return l.verDescripcion();
+        }
+        return "Ese libro no existe en la biblioteca";
+    }
+
+    public int consultarPaginasLibro(String libro) {
+        Libro l = buscar(libro);
+        if (l != null) {
+            return l.getNroPaginas();
+        }
+        return -1;
     }
 }
 

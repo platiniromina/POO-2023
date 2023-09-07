@@ -4,7 +4,6 @@ public class Libro {
     private String isbn;
     private String titulo;
     private String autor;
-    private String anio;
     private Integer nroPaginas;
     private Integer ejemplares;
     private Integer ejemplaresPrestados = 0;
@@ -37,14 +36,6 @@ public class Libro {
     public String getAutor() {
         return autor;
     }
-
-    public void setAnio(String anio) {
-        this.anio = anio;
-    }
-    public String getAnio() {
-        return anio;
-    }
-
     public void setNroPaginas(int nroPaginas) {
         this.nroPaginas = nroPaginas;
     }
@@ -55,8 +46,11 @@ public class Libro {
     public void setEjemplares(int ejemplares) {
         this.ejemplares = ejemplares;
     }
-    public int getEjemplaresDisponibles() {
+    public int getEjemplares() {
         return ejemplares;
+    }
+    public int getEjemplaresDisponibles() {
+        return ejemplares - ejemplaresPrestados;
     }
 
     public int getEjemplaresPrestados() {
@@ -64,11 +58,10 @@ public class Libro {
     }
 
     public String verDescripcion() {
-        String descripcion = String.format("Libro: %s / Autor: %s / ISBN: %s " +
-                        "/ Año: %s / Páginas: %i \n" +
-                        "Ejemplares disponibles: %i / Ejemplares prestados: %i",
-                titulo, autor, isbn, anio, nroPaginas, ejemplares, ejemplaresPrestados);
-        return descripcion;
+        return String.format("Libro: %s / Autor: %s / ISBN: %s " +
+                        "/ Páginas: %d \n" +
+                        "Ejemplares disponibles: %d / Ejemplares prestados: %d",
+                titulo, autor, isbn, nroPaginas, getEjemplaresDisponibles(), ejemplaresPrestados);
     }
 
     public boolean prestar() {
