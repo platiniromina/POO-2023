@@ -5,10 +5,10 @@ import java.time.format.DateTimeFormatter;
 
 public class Tarea {
     public enum Prioridad {
-        BAJA, MEDIA, ALTA;
+        BAJA, MEDIA, ALTA
     }
     public enum Estado {
-        COMPLETA, INCOMPLETA;
+        COMPLETA, INCOMPLETA
     }
     private String descripcion;
     private Prioridad prioridad;

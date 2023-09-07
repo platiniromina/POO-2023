@@ -41,7 +41,7 @@ public class ListaTareas { // esta clase es el administrador de las tareas
     public void asignarTarea(String tarea, String colaborador) {
         Tarea task = buscarTarea(tarea);
         Colaborador user = buscarColaborador(colaborador);
-        if (!colaborador.equals(null) && !tarea.equals(null)) {
+        if ((user != null) && (task != null)) {
             task.setUser(user);
         }
         else {
@@ -58,12 +58,15 @@ public class ListaTareas { // esta clase es el administrador de las tareas
     public void mostrarTareasColaborador(String nombre) {
         Colaborador colaborador = buscarColaborador(nombre);
         int i=1;
-        for(Tarea tarea : listaTareas) {
-            if (tarea.getUser().equals(colaborador) && !colaborador.equals(null)) {
-                System.out.printf("%d. %s \n", i, tarea.mostrarTarea());
-            }
+        if (colaborador != null) {
+             for (Tarea tarea : listaTareas) {
+                 if (tarea.getUser().equals(colaborador)) {
+                     System.out.println(tarea.mostrarTarea());
+                 }
+             }
+        } else {
+            System.out.println("No hay tareas para ese colaborador o no existe colaborador");
         }
-        System.out.println("No hay tareas para ese colaborador o no existe colaborador");
     }
     public void mostrarTareasNoVencidas() {
         Comparator<Tarea> byPrioridad = Comparator.comparing(Tarea::getPrioridad);
