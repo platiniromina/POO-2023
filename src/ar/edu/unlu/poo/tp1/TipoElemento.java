@@ -1,3 +1,5 @@
+package ar.edu.unlu.poo.tp1;
+
 public class TipoElemento {
     private Integer clave = null;
     private Object valor = null;

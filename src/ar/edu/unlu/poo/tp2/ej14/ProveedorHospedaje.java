@@ -20,6 +20,6 @@ public class ProveedorHospedaje extends Proveedor {
     }
 
     public String toString() {
-        return "\nProveedor de hospedaje: <" + nombre + "> | Precio de servicio base: <" + precioBase + ">";
+        return "Proveedor de hospedaje: <" + nombre + "> | Precio de servicio base: <" + precioBase + ">";
     }
 }

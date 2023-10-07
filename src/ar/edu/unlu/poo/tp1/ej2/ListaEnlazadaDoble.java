@@ -1,5 +1,8 @@
 package ar.edu.unlu.poo.tp1.ej2;
 
+import ar.edu.unlu.poo.tp1.Nodo;
+import ar.edu.unlu.poo.tp1.TipoElemento;
+
 public class ListaEnlazadaDoble {
     private Nodo inicio;
 

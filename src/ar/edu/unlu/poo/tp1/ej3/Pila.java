@@ -1,5 +1,8 @@
 package ar.edu.unlu.poo.tp1.ej3;
 
+import ar.edu.unlu.poo.tp1.Nodo;
+import ar.edu.unlu.poo.tp1.TipoElemento;
+
 public class Pila {
     private Nodo tope;
 

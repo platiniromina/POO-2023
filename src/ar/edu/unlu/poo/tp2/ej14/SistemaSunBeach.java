@@ -22,7 +22,7 @@ public class SistemaSunBeach {
         registrarProveedor(transporte);
         registrarProveedor(hospedaje);
 
-        System.out.println("Lista de proveedores");
+        System.out.println("---Lista de proveedores---");
         mostrarProveedores();
 
         // registro de paquetes
@@ -33,7 +33,7 @@ public class SistemaSunBeach {
         registrarPaquete(paquete2);
         registrarPaquete(paquete3);
 
-        System.out.println("Paquetes turísticos activos");
+        System.out.println("\n---Paquetes turísticos activos---");
         mostrarPaquetes();
 
         // registro de clientes
@@ -42,7 +42,7 @@ public class SistemaSunBeach {
         registrarCliente(unCliente);
         registrarCliente(otroCliente);
 
-        System.out.println("Clientes registrados");
+        System.out.println("\n---Clientes registrados---");
         listarClientes();
 
         // compra de paquetes
@@ -53,7 +53,7 @@ public class SistemaSunBeach {
         Venta venta3 = new Venta(paquete1);
         registrarVenta(venta3, unCliente, 4);
 
-        System.out.println("Ventas realizadas");
+        System.out.println("\n---Ventas realizadas---");
         // mostrar ventas
         listarVentas();
 
@@ -104,7 +104,7 @@ public class SistemaSunBeach {
     }
     public void mostrarComprasCliente(String nombre) {
         Cliente cliente = buscarCliente(nombre);
-        System.out.println("Compras realizadas por el cliente <" + cliente + ">\n");
+        System.out.println("\n---Compras realizadas por el cliente <" + cliente.getNombre() + ">\n");
         for (Venta compra : cliente.getCompras()) {
             System.out.println(compra.soloDestino());
         }

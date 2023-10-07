@@ -1,5 +1,8 @@
 package ar.edu.unlu.poo.tp1.ej4;
 
+import ar.edu.unlu.poo.tp1.Nodo;
+import ar.edu.unlu.poo.tp1.TipoElemento;
+
 public class Cola {
     private Nodo frente = null;
     private Nodo ultimo = null;

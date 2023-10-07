@@ -13,6 +13,6 @@ public class ProveedorGuia extends Proveedor {
         return precioBase;
     }
     public String toString() {
-        return "\nGuia de Turismo: <" + nombre + "> | Precio de servicio base: <" + precioBase + ">";
+        return "Guia de Turismo: <" + nombre + "> | Precio de servicio base: <" + precioBase + ">";
     }
 }

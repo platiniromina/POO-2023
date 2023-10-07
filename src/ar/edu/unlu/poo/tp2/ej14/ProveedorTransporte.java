@@ -11,6 +11,6 @@ public class ProveedorTransporte extends Proveedor {
         return cantMaxClientes * 0.003 * precioBase;
     }
     public String toString() {
-        return "\nProveedor de transporte: <" + nombre + "> | Precio de servicio base: <" + precioBase + ">";
+        return "Proveedor de transporte: <" + nombre + "> | Precio de servicio base: <" + precioBase + ">";
     }
 }

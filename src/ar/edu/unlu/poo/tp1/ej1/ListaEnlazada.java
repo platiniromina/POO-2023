@@ -1,5 +1,8 @@
 package ar.edu.unlu.poo.tp1.ej1;
 
+import ar.edu.unlu.poo.tp1.Nodo;
+import ar.edu.unlu.poo.tp1.TipoElemento;
+
 public class ListaEnlazada {
     private Nodo inicio;
 

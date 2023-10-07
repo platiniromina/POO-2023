@@ -28,7 +28,7 @@ public class PaqueteTuristico {
         for (Proveedor proveedor : proveedores) {
             paquete.append(proveedor.toString()).append("\n");
         }
-        paquete.append("\nDestino: <").append(destino).append(">");
+        paquete.append("Destino: <").append(destino).append(">");
         return paquete;
     }
 }

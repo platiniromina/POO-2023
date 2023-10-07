@@ -1,3 +1,5 @@
+package ar.edu.unlu.poo.tp1;
+
 public class Nodo {
     private TipoElemento dato = new TipoElemento();
     private Nodo siguiente = null;
