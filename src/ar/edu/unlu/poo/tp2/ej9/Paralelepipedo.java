@@ -1,3 +1,5 @@
+package ar.edu.unlu.poo.tp2.ej9;
+
 public class Paralelepipedo extends Figura3D {
     private double ancho;
     private double base;

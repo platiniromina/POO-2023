@@ -1,3 +1,5 @@
+package ar.edu.unlu.poo.tp2.ej9;
+
 public class Cubo extends Figura3D {
     private double lado;
 

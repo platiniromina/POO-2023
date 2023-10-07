@@ -1,3 +1,5 @@
+package ar.edu.unlu.poo.tp2.ej9;
+
 public class Rectangulo extends Figura2D {
     private double base;
     private double altura;
@@ -9,5 +11,10 @@ public class Rectangulo extends Figura2D {
     @Override
     public double getArea() {
         return base * altura;
+    }
+
+    @Override
+    public double getPerimetro() {
+        return base * 2 + altura * 2;
     }
 }
